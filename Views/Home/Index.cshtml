@@ -18,7 +18,7 @@
             <li><a href="#tabs-1">Tecnologias Utilizadas</a></li>
             <li><a href="#tabs-2">Sobre</a></li>
             <li><a href="#tabs-3">Cadastro de Pessoa</a></li>
-            <li><a href="#tabs-4">2ª Atividade</a></li>
+            <li><a href="#tabs-4">Cadastro de Produto</a></li>
             <li><a href="#tabs-5">3ª Atividade</a></li>
         </ul>
         <div id="tabs-1">
@@ -181,6 +181,111 @@
                     <span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
                     <strong>*Dica:</strong> Verifique se as tabelas no banco de dados foi criada. O
                     ADO.NET Entity framework lhe permite criar as tabelas através do MODELO criado.
+                </p>
+            </div>
+        </div>
+
+        <div id="tabs-4">
+            <div class="box_white">
+                <h5>
+                    Cadastro de produto:</h5>
+                <div class="box_small">
+                    <script type="text/javascript">
+                        $().ready(function () {
+
+                            //popup da modal para a div infoPopup2
+                            $('#infoPopup3').dialog({ autoOpen: false });
+
+                            $('#info3').click(function () {
+                                $('#infoPopup3').dialog("open");
+
+                            });
+
+                            //Faça seu código aqui!///////////////////////////////////////////////////////////////////////////////////////////////////
+                            $().ready(function () {
+                                //Adição de método para validação de data. O validate padrão está validando no formato americano
+                                jQuery.validator.addMethod("brasilDate",
+                                function (data) {
+                                    var regexData = new RegExp('^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/[12][0-9]{3}$');
+                                    return regexData.test(data);
+                                },
+                                "Entre com uma data válida"
+                            );
+                                //validação cliente do formulário
+                                $('#formProduto').validate({
+                                    rules: {
+                                        fabricacao: { brasilDate: true }
+
+                                    }
+                                });
+                                $('#formProduto').validate({
+                                    rules: {
+                                        validade: { brasilDate: true }
+                                    }
+                                });
+                                //calendário jquery
+                                $('.data').datepicker({ changeYear: 'true', changeMonth: 'true', yearRange: 'c-150' });
+
+                                //Método personalizado para submeter os dados
+                                var img = document.createElement('img');
+                                $('#formProduto').formSubmit({
+                                    reset: true,
+                                    url: '@Url.Action("CadastrarProduto")',
+                                    beforeSend: function () {
+
+                                        //Carrega a gif na página
+                                        img.setAttribute('src', '../../Content/images/carregando.gif');
+                                        $(img).css('margin-left', '10px');
+                                        $('#formProduto').append(img);
+                                    },
+                                    success: function (data) {
+                                        apprise({ string: data.Mensagem });
+                                        $(img).remove();
+                                    }
+                                });
+                            });
+
+
+                        });
+                    </script>
+                    <button class="info" id="info3">
+                        info</button>
+                    <div id="infoPopup3" title="Info">
+                        Para que esse formulario funcione ou seja registre os dados no banco, é necessario revisar a clase 
+                        HomeController y a clase ProdutoBLL que são os responsavel pela persistencia, mais para que esso acontesa
+                        desde esse formulario, a gente fez uso do JQuery e o Ajax tanto para limpar ou seja, que os campos(dados) cumpla com 
+                        os requirimentos necesarios e para o envio dos dados nas requisições correspondentes.
+                        Lembrando que toda as vistas são puro HTML<br/>
+                        PSD: é gente...se meu português esta errado... peço mil desculpa, e por favor sem criticar, por que pelo contrario
+                        vou escreber en guaraní
+                    </div>
+                    @using (Html.BeginForm(null, null, FormMethod.Post, new { @id = "formProduto" }))
+                    {
+                        <p>
+                            <label class="txtLabel">
+                                Nome:</label>
+                            <input type="text"  name="nome" class="required" style="width: 400px;"  />
+                        </p>
+                        <p>
+                            <label class="txtLabel">
+                                Fabricação:</label>
+                            <input type="text" name="fabricacao" class="required data"  />
+                        </p>
+                        <p>
+                            <label class="txtLabel">
+                                Validade:</label>
+                            <input type="text"name="validade" class="required data"  />
+                        </p>   
+                        
+                        <input type="submit" class="button" id="btnEnviar" />
+                    }
+                </div>
+            </div>
+            <div class="ui-state-highlight ui-corner-all">
+                <p>
+                    <span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
+                    <strong>*Dica:</strong> Os formularios utiliza uma funçao personalizado formSubmit criada na pasta Scripts no arquivo
+                    Personalizado.js
                 </p>
             </div>
         </div>

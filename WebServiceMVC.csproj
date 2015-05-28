@@ -73,6 +73,7 @@
       <DependentUpon>MVC.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Repositorio\PessoaBLL.cs" />
+    <Compile Include="Models\Repositorio\ProdutoBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

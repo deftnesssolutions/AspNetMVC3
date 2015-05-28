@@ -13,10 +13,12 @@ namespace WebServiceMVC.Models.Auxiliares.Controllers
         // GET: /Home/
         //variáveis de acesso ao repositório
         private PessoaBLL _bllPessoa;
+        private ProdutoBLL _bllProduto;
 
         public HomeController()
         {
             _bllPessoa = new PessoaBLL();
+            _bllProduto = new ProdutoBLL();
         }
         public ActionResult Index()
         {
@@ -30,6 +32,13 @@ namespace WebServiceMVC.Models.Auxiliares.Controllers
         public ActionResult CadastrarPessoa(FormCollection collection)
         {
             var cadastrado = _bllPessoa.CadastrarPessoa(collection);
+            return Json(cadastrado ? new { Mensagem = "Cadastro realizado com sucesso!" } : new { Mensagem = "Houve um problema ao realizar o cadastro!" });
+        }
+
+        [HttpPost]
+        public ActionResult CadastrarProduto(FormCollection collection)
+        {
+            var cadastrado = _bllProduto.CadastrarProduto(collection);
             return Json(cadastrado ? new { Mensagem = "Cadastro realizado com sucesso!" } : new { Mensagem = "Houve um problema ao realizar o cadastro!" });
         }
     }
