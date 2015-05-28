@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="TestePraticoModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-  <EntityContainer Name="TestePraticoEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="TestePraticoEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="tbCidades" EntityType="TestePraticoModel.tbCidade" />
     <EntitySet Name="tbEstadoes" EntityType="TestePraticoModel.tbEstado" />
     <EntitySet Name="tbPessoas" EntityType="TestePraticoModel.tbPessoa" />
