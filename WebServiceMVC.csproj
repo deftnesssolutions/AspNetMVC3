@@ -74,11 +74,9 @@
     <Content Include="Content\960gs\reset.css" />
     <Content Include="Content\960gs\text.css" />
     <Content Include="Content\images\carregando.gif" />
-    <Content Include="Content\images\fondo.png" />
     <Content Include="Content\images\chruch.png" />
     <Content Include="Content\images\logo.png" />
-    <Content Include="Content\images\logo2.png" />
-    <Content Include="Content\images\logohorizontal2.png" />
+    <Content Include="Content\images\logoweb.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\apprise\apprise.css" />
     <Content Include="Content\themes\base\jquery.ui.accordion.css" />
