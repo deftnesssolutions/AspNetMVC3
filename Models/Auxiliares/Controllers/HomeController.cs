@@ -13,7 +13,7 @@ namespace WebServiceMVC.Models.Auxiliares.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Message = "Bem-vido ao exemplo prático com ASP.NET MVC";
+            ViewBag.Message = "Bem-vido ao exemplo prático ASP.NET MVC";
             return View();
         }
 

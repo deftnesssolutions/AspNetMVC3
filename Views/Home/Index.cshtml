@@ -1,4 +1,38 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<script type="text/javascript">
+    $().ready(function () {
 
+        //Reponsável por incluir o layout das tabs
+        $('#tabs').tabs();
+    });
+</script>
+<div class="grid_16">
+    <h2 class="title">@ViewBag.Message</h2>
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Tecnologias Utilizadas</a></li>
+            <li><a href="#tabs-2">Descrição</a></li>
+            <li><a href="#tabs-3">1ª Atividade</a></li>
+            <li><a href="#tabs-4">2ª Atividade</a></li>
+            <li><a href="#tabs-5">3ª Atividade</a></li>
+        </ul>
+        <div id="tabs-1">
+            <b>As tecnologias utilizadas nesse exemplo são:</b>
+            <ul>
+                <li>ASP.NET MVC 3</li>
+                <li>JQUERY 1.7.1</li>
+                <li>JQUERY UI 1.8.18(Plugin)</li>
+                <li>JQUERY MASKED INPUT(Plugin)</li>
+                <li>AJAX (utilizando JQUERY)</li>
+                <li>Layout 960gs</li>
+                <li>SQLSERVER2008</li>
+                <li>ADO.NET Entity Framework 4.0</li>
+                <li>CSS (básico)</li>
+                <li>HTML (básico)</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
