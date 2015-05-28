@@ -1,68 +1,82 @@
+﻿.title
+{
+    color: rgb(85, 85, 85);
+    font-family: "Open Sans" , "Gill Sans" , "Gill Sans MT" , sans-serif !important;
+    margin: 0;
+    font-size: 34px;
+    text-transform: uppercase;
+    text-shadow: 0 4px 0 rgba(204, 204, 204, 0.6);
+}
+
 body
 {
-    font-size: 75%;
-    font-family: Verdana, Tahoma, Arial, "Helvetica Neue", Helvetica, Sans-Serif;
-    color: #232323;
-    background-color: #fff;
+    margin-top: 50px;
+    background: url(images/chruch.png)
 }
 
-/* Styles for basic forms
------------------------------------------------------------*/
-
-fieldset 
+.logo 
 {
-    border:1px solid #ddd;
-    padding:0 1.4em 1.4em 1.4em;
-    margin:0 0 1.5em 0;
+    margin-bottom: 20px;
+    margin-left: 10px;
 }
 
-legend 
+.box_white
 {
-    font-size:1.2em;
-    font-weight: bold;
+    overflow: hidden;
+    background: white;
+    border: 1px solid #CCC;
+    padding: 20px;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.27);
+    margin-bottom: 30px;
 }
 
-textarea 
+.box_small
 {
-    min-height: 75px;
+    overflow: hidden;
+    background: white;
+    border: 1px solid #CCC;
+    padding: 20px;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    margin-bottom: 30px;
 }
 
-.editor-label 
+form p .txtLabel
 {
-    margin: 1em 0 0 0;
+    color: rgb(118, 118, 118);
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+    overflow: hidden;
+    padding: 0;
+    background: #E6E6E6/*{bgColorDefault}*/ url(themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png)/*{bgImgUrlDefault}*/ 50%/*{bgDefaultXPos}*/ 50%/*{bgDefaultYPos}*/ repeat-x/*{bgDefaultRepeat}*/;
+    border: 1px solid #CCC;
+    border-top-left-radius: 5px; 
+    border-bottom-left-radius: 5px; 
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-bottomleft: 5px;
 }
 
-.editor-field 
+form p input
 {
-    margin:0.5em 0 0 0;
+    padding: 0px;  
 }
 
-
-/* Styles for validation helpers
------------------------------------------------------------*/
-.field-validation-error
+form
 {
-    color: #ff0000;
+    margin-left: 50px;
+    margin-top: 30px;  
 }
 
-.field-validation-valid
+form .error
 {
-    display: none;
+    color: red;
+    margin-left: 5px;
 }
 
-.input-validation-error
+form .button
 {
-    border: 1px solid #ff0000;
-    background-color: #ffeeee;
-}
-
-.validation-summary-errors
-{
-    font-weight: bold;
-    color: #ff0000;
-}
-
-.validation-summary-valid
-{
-    display: none;
+    margin-left: 330px;    
 }

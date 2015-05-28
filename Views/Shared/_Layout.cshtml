@@ -1,12 +1,27 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-    <title>@ViewBag.Title</title>
+<head>    
+    <link href="@Url.Content("~/Content/960gs/reset.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/960gs/text.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/960gs/16colunas.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
-    <script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")" type="text/javascript"></script>
-</head>
+    <link href="@Url.Content("~/Content/themes/base/jquery.ui.all.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/themes/apprise/apprise.css")" rel="stylesheet" type="text/css" />
 
+    <script src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/modernizr-2.5.3.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.8.18.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-maskedinput.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Personalizado.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/apprise-1.5.full.js")" type="text/javascript"></script>
+
+    <title class="title">@ViewBag.Title</title>
+</head>
 <body>
-    @RenderBody()
+    <div class="container_16">        
+        <div class="logo"><img src="../../Content/images/logohorizontal2.png" /></div>        
+        @RenderBody()
+    </div>
 </body>
 </html>

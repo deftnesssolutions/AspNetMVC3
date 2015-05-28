@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TestePraticoModelStoreContainer" CdmEntityContainer="TestePraticoEntities1">
+    <EntitySetMapping Name="tbCidades">
+      <EntityTypeMapping TypeName="IsTypeOf(TestePraticoModel.tbCidade)">
+        <MappingFragment StoreEntitySet="tbCidades">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+          <ScalarProperty Name="tbEstado_id" ColumnName="tbEstado_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbEstadoes">
+      <EntityTypeMapping TypeName="IsTypeOf(TestePraticoModel.tbEstado)">
+        <MappingFragment StoreEntitySet="tbEstadoes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbPessoas">
+      <EntityTypeMapping TypeName="IsTypeOf(TestePraticoModel.tbPessoa)">
+        <MappingFragment StoreEntitySet="tbPessoas">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="cpf" ColumnName="cpf" />
+          <ScalarProperty Name="telefone" ColumnName="telefone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="rg" ColumnName="rg" />
+          <ScalarProperty Name="genero" ColumnName="genero" />
+          <ScalarProperty Name="dataNasc" ColumnName="dataNasc" />
+          <ScalarProperty Name="tbCidade_id" ColumnName="tbCidade_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbProdutoes">
+      <EntityTypeMapping TypeName="IsTypeOf(TestePraticoModel.tbProduto)">
+        <MappingFragment StoreEntitySet="tbProdutoes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Produto" ColumnName="Produto" />
+          <ScalarProperty Name="Fabricacao" ColumnName="Fabricacao" />
+          <ScalarProperty Name="Validade" ColumnName="Validade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

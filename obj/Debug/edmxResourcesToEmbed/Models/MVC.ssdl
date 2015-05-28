@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TestePraticoModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="TestePraticoModelStoreContainer">
+    <EntitySet Name="tbCidades" EntityType="TestePraticoModel.Store.tbCidades" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbEstadoes" EntityType="TestePraticoModel.Store.tbEstadoes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbPessoas" EntityType="TestePraticoModel.Store.tbPessoas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbProdutoes" EntityType="TestePraticoModel.Store.tbProdutoes" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_tbCidadetbEstado" Association="TestePraticoModel.Store.FK_tbCidadetbEstado">
+      <End Role="tbEstado" EntitySet="tbEstadoes" />
+      <End Role="tbCidade" EntitySet="tbCidades" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tbCidades">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cidade" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="tbEstado_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbEstadoes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Estado" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbPessoas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="cpf" Type="nvarchar" Nullable="true" MaxLength="11" />
+    <Property Name="telefone" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="email" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="rg" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="genero" Type="char" Nullable="true" MaxLength="10" />
+    <Property Name="dataNasc" Type="datetime" Nullable="true" />
+    <Property Name="tbCidade_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbProdutoes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Produto" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Fabricacao" Type="datetime" Nullable="true" />
+    <Property Name="Validade" Type="datetime" Nullable="true" />
+  </EntityType>
+  <Association Name="FK_tbCidadetbEstado">
+    <End Role="tbEstado" Type="TestePraticoModel.Store.tbEstadoes" Multiplicity="1" />
+    <End Role="tbCidade" Type="TestePraticoModel.Store.tbCidades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbEstado">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbCidade">
+        <PropertyRef Name="tbEstado_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
