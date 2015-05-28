@@ -7,3 +7,4 @@ G:\Xamarin Studio\AspNetMVC3\bin\WebServiceMVC.dll
 G:\Xamarin Studio\AspNetMVC3\bin\WebServiceMVC.pdb
 G:\Xamarin Studio\AspNetMVC3\obj\Debug\WebServiceMVC.dll
 G:\Xamarin Studio\AspNetMVC3\obj\Debug\WebServiceMVC.pdb
+G:\Xamarin Studio\AspNetMVC3\obj\Debug\WebServiceMVC.csprojResolveAssemblyReference.cache

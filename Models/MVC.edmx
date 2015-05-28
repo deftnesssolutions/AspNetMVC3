@@ -6,16 +6,16 @@
     <edmx:StorageModels>
     <Schema Namespace="TestePraticoModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="TestePraticoModelStoreContainer">
-    <EntitySet Name="tbCidades" EntityType="TestePraticoModel.Store.tbCidades" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="tbEstadoes" EntityType="TestePraticoModel.Store.tbEstadoes" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="tbPessoas" EntityType="TestePraticoModel.Store.tbPessoas" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="tbProdutoes" EntityType="TestePraticoModel.Store.tbProdutoes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbCidade" EntityType="TestePraticoModel.Store.tbCidade" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbEstado" EntityType="TestePraticoModel.Store.tbEstado" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbPessoa" EntityType="TestePraticoModel.Store.tbPessoa" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbProduto" EntityType="TestePraticoModel.Store.tbProduto" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_tbCidadetbEstado" Association="TestePraticoModel.Store.FK_tbCidadetbEstado">
-      <End Role="tbEstado" EntitySet="tbEstadoes" />
-      <End Role="tbCidade" EntitySet="tbCidades" />
+      <End Role="tbEstado" EntitySet="tbEstado" />
+      <End Role="tbCidade" EntitySet="tbCidade" />
     </AssociationSet>
   </EntityContainer>
-  <EntityType Name="tbCidades">
+  <EntityType Name="tbCidade">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -23,14 +23,14 @@
     <Property Name="Cidade" Type="nvarchar(max)" Nullable="true" />
     <Property Name="tbEstado_id" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="tbEstadoes">
+  <EntityType Name="tbEstado">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Estado" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
-  <EntityType Name="tbPessoas">
+  <EntityType Name="tbPessoa">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -44,7 +44,7 @@
     <Property Name="dataNasc" Type="datetime" Nullable="true" />
     <Property Name="tbCidade_id" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="tbProdutoes">
+  <EntityType Name="tbProduto">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -54,8 +54,8 @@
     <Property Name="Validade" Type="datetime" Nullable="true" />
   </EntityType>
   <Association Name="FK_tbCidadetbEstado">
-    <End Role="tbEstado" Type="TestePraticoModel.Store.tbEstadoes" Multiplicity="1" />
-    <End Role="tbCidade" Type="TestePraticoModel.Store.tbCidades" Multiplicity="*" />
+    <End Role="tbEstado" Type="TestePraticoModel.Store.tbEstado" Multiplicity="1" />
+    <End Role="tbCidade" Type="TestePraticoModel.Store.tbCidade" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="tbEstado">
         <PropertyRef Name="id" />
@@ -70,13 +70,13 @@
     <edmx:ConceptualModels>
       <Schema Namespace="TestePraticoModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="TestePraticoEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="tbCidades" EntityType="TestePraticoModel.tbCidade" />
-          <EntitySet Name="tbEstadoes" EntityType="TestePraticoModel.tbEstado" />
-          <EntitySet Name="tbPessoas" EntityType="TestePraticoModel.tbPessoa" />
-          <EntitySet Name="tbProdutoes" EntityType="TestePraticoModel.tbProduto" />
+          <EntitySet Name="tbCidade" EntityType="TestePraticoModel.tbCidade" />
+          <EntitySet Name="tbEstado" EntityType="TestePraticoModel.tbEstado" />
+          <EntitySet Name="tbPessoa" EntityType="TestePraticoModel.tbPessoa" />
+          <EntitySet Name="tbProduto" EntityType="TestePraticoModel.tbProduto" />
           <AssociationSet Name="FK_tbCidadetbEstado" Association="TestePraticoModel.FK_tbCidadetbEstado">
-            <End Role="tbEstado" EntitySet="tbEstadoes" />
-            <End Role="tbCidade" EntitySet="tbCidades" />
+            <End Role="tbEstado" EntitySet="tbEstado" />
+            <End Role="tbCidade" EntitySet="tbCidade" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="tbCidade">
@@ -94,7 +94,7 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Estado" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="tbCidades" Relationship="TestePraticoModel.FK_tbCidadetbEstado" FromRole="tbEstado" ToRole="tbCidade" />
+          <NavigationProperty Name="tbCidade" Relationship="TestePraticoModel.FK_tbCidadetbEstado" FromRole="tbEstado" ToRole="tbCidade" />
         </EntityType>
         <EntityType Name="tbPessoa">
           <Key>
@@ -137,26 +137,26 @@
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="TestePraticoModelStoreContainer" CdmEntityContainer="TestePraticoEntities">
-    <EntitySetMapping Name="tbCidades">
+    <EntitySetMapping Name="tbCidade">
       <EntityTypeMapping TypeName="IsTypeOf(TestePraticoModel.tbCidade)">
-        <MappingFragment StoreEntitySet="tbCidades">
+        <MappingFragment StoreEntitySet="tbCidade">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="Cidade" ColumnName="Cidade" />
           <ScalarProperty Name="tbEstado_id" ColumnName="tbEstado_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tbEstadoes">
+    <EntitySetMapping Name="tbEstado">
       <EntityTypeMapping TypeName="IsTypeOf(TestePraticoModel.tbEstado)">
-        <MappingFragment StoreEntitySet="tbEstadoes">
+        <MappingFragment StoreEntitySet="tbEstado">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="Estado" ColumnName="Estado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tbPessoas">
+    <EntitySetMapping Name="tbPessoa">
       <EntityTypeMapping TypeName="IsTypeOf(TestePraticoModel.tbPessoa)">
-        <MappingFragment StoreEntitySet="tbPessoas">
+        <MappingFragment StoreEntitySet="tbPessoa">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nome" ColumnName="nome" />
           <ScalarProperty Name="cpf" ColumnName="cpf" />
@@ -169,9 +169,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tbProdutoes">
+    <EntitySetMapping Name="tbProduto">
       <EntityTypeMapping TypeName="IsTypeOf(TestePraticoModel.tbProduto)">
-        <MappingFragment StoreEntitySet="tbProdutoes">
+        <MappingFragment StoreEntitySet="tbProduto">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Produto" ColumnName="Produto" />
           <ScalarProperty Name="Fabricacao" ColumnName="Fabricacao" />

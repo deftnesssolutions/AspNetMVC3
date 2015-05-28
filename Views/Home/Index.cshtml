@@ -58,7 +58,132 @@
             </div>
         </div>
 
+        <div id="tabs-3">
+            <div class="box_white">
+                <h5>
+                    Informe seus dados pessoais:</h5>
+                <div class="box_small">
+                
+                    <script type="text/javascript">
+                        $().ready(function () {
 
+
+
+                            //Adição de método para validação de data. O validate padrão está validando no formato americano
+                            jQuery.validator.addMethod("brasilDate",
+                                function (data) {
+                                    var regexData = new RegExp('^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/[12][0-9]{3}$');
+                                    return regexData.test(data);
+                                },
+                                "Entre com uma data válida"
+                            );
+
+                            //validação cliente do formulário
+                            $('#formPessoa').validate({
+                                rules: {
+                                    dataNasc: { brasilDate: true }
+                                }
+                            });
+
+                            //máscaras
+                            $('.cpf').mask("999999999-99");
+                            $('.tel').mask("(99)9999-9999");
+
+                            //calendário jquery
+                            $('.data').datepicker({ changeYear: 'true', changeMonth: 'true', yearRange: 'c-150' });
+
+                            //Método personalizado para submeter os dados
+                            var img = document.createElement('img');
+                            $('#formPessoa').formSubmit({
+                                reset: true,
+                                url: '@Url.Action("CadastrarPessoa")',
+                                beforeSend: function () {
+
+                                    //Carrega a gif na página
+                                    img.setAttribute('src', '../../Content/images/carregando.gif');
+                                    $(img).css('margin-left', '10px');
+                                    $('#formPessoa').append(img);
+                                },
+                                success: function (data) {
+                                    apprise({ string: data.Mensagem });
+                                    $(img).remove();
+                                }
+                            });
+
+                            //Configuração do diálog
+                            $("#infoPopup1").dialog({ autoOpen: false });
+
+                            //evento click para a informação 1
+                            $('#info1').click(function () {
+                                $("#infoPopup1").dialog('open');
+                            });
+                        });
+                    </script>
+                    <button class="info" id="info1">
+                        info</button>
+                    <div id="infoPopup1" title="Info">
+                        Para que esse formulario funcione ou seja registre os dados no banco, é necessario revisar a clase 
+                        HomeController y a clase PessoaBLL que são os responsavel pela persistencia, mais para que esso acontesa
+                        desde esse formulario, a gente fez uso do JQuery e o Ajax tanto para limpar ou seja, que os campos(dados) cumpla com 
+                        os requirimentos necesarios e para o envio dos dados nas requisições correspondentes.
+                        Lembrando que toda as vistas são puro HTML<br/>
+                        PSD: é gente...se meu português esta errado... peço mil desculpa, e por favor sem criticar, por que pelo contrario
+                        vou escreber en guaraní
+                    </div>
+                    @using (Html.BeginForm(null, null, FormMethod.Post, new { @id = "formPessoa" }))
+                    {
+                        <p>
+                            <label class="txtLabel">
+                                Nome:</label>
+                            <input type="text" name="nome" class="required" style="width: 400px;" />
+                        </p>
+                        <p>
+                            <label class="txtLabel">
+                                CPF:</label>
+                            <input type="text" name="cpf" class="required cpf" />
+                        </p>
+                        <p>
+                            <label class="txtLabel">
+                                Telefone:</label>
+                            <input type="text" name="telefone" class=" required tel" />
+                        </p>
+                        <p>
+                            <label class="txtLabel">
+                                Email:</label>
+                            <input type="text" name="email" class="required email" />
+                        </p>
+                        <p>
+                            <label class="txtLabel">
+                                RG:</label>
+                            <input type="text" name="rg" class="required" />
+                        </p>
+                        <p>
+                            <label class="txtLabel">
+                                Sexo:
+                            </label>
+                            <select name="genero">
+                                <option value="M">Masculino</option>
+                                <option value="F">Feminino</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label class="txtLabel">
+                                Nascimento:
+                            </label>
+                            <input type="text" name="dataNasc" class="required data" />
+                        </p>
+                        <input type="submit" class="button" id="button" />
+                    }
+                </div>
+            </div>
+            <div class="ui-state-highlight ui-corner-all">
+                <p>
+                    <span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
+                    <strong>*Dica:</strong> Verifique se as tabelas no banco de dados foi criada. O
+                    ADO.NET Entity framework lhe permite criar as tabelas através do MODELO criado.
+                </p>
+            </div>
+        </div>
     </div>
 
 </div>

@@ -72,6 +72,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MVC.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Repositorio\PessoaBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -149,7 +150,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\Repositorio\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />

@@ -74,101 +74,101 @@ namespace WebServiceMVC.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<tbCidade> tbCidades
+        public ObjectSet<tbCidade> tbCidade
         {
             get
             {
-                if ((_tbCidades == null))
+                if ((_tbCidade == null))
                 {
-                    _tbCidades = base.CreateObjectSet<tbCidade>("tbCidades");
+                    _tbCidade = base.CreateObjectSet<tbCidade>("tbCidade");
                 }
-                return _tbCidades;
+                return _tbCidade;
             }
         }
-        private ObjectSet<tbCidade> _tbCidades;
+        private ObjectSet<tbCidade> _tbCidade;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<tbEstado> tbEstadoes
+        public ObjectSet<tbEstado> tbEstado
         {
             get
             {
-                if ((_tbEstadoes == null))
+                if ((_tbEstado == null))
                 {
-                    _tbEstadoes = base.CreateObjectSet<tbEstado>("tbEstadoes");
+                    _tbEstado = base.CreateObjectSet<tbEstado>("tbEstado");
                 }
-                return _tbEstadoes;
+                return _tbEstado;
             }
         }
-        private ObjectSet<tbEstado> _tbEstadoes;
+        private ObjectSet<tbEstado> _tbEstado;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<tbPessoa> tbPessoas
+        public ObjectSet<tbPessoa> tbPessoa
         {
             get
             {
-                if ((_tbPessoas == null))
+                if ((_tbPessoa == null))
                 {
-                    _tbPessoas = base.CreateObjectSet<tbPessoa>("tbPessoas");
+                    _tbPessoa = base.CreateObjectSet<tbPessoa>("tbPessoa");
                 }
-                return _tbPessoas;
+                return _tbPessoa;
             }
         }
-        private ObjectSet<tbPessoa> _tbPessoas;
+        private ObjectSet<tbPessoa> _tbPessoa;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<tbProduto> tbProdutoes
+        public ObjectSet<tbProduto> tbProduto
         {
             get
             {
-                if ((_tbProdutoes == null))
+                if ((_tbProduto == null))
                 {
-                    _tbProdutoes = base.CreateObjectSet<tbProduto>("tbProdutoes");
+                    _tbProduto = base.CreateObjectSet<tbProduto>("tbProduto");
                 }
-                return _tbProdutoes;
+                return _tbProduto;
             }
         }
-        private ObjectSet<tbProduto> _tbProdutoes;
+        private ObjectSet<tbProduto> _tbProduto;
 
         #endregion
 
         #region AddTo Methods
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the tbCidades EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the tbCidade EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddTotbCidades(tbCidade tbCidade)
+        public void AddTotbCidade(tbCidade tbCidade)
         {
-            base.AddObject("tbCidades", tbCidade);
+            base.AddObject("tbCidade", tbCidade);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the tbEstadoes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the tbEstado EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddTotbEstadoes(tbEstado tbEstado)
+        public void AddTotbEstado(tbEstado tbEstado)
         {
-            base.AddObject("tbEstadoes", tbEstado);
+            base.AddObject("tbEstado", tbEstado);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the tbPessoas EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the tbPessoa EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddTotbPessoas(tbPessoa tbPessoa)
+        public void AddTotbPessoa(tbPessoa tbPessoa)
         {
-            base.AddObject("tbPessoas", tbPessoa);
+            base.AddObject("tbPessoa", tbPessoa);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the tbProdutoes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the tbProduto EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddTotbProdutoes(tbProduto tbProduto)
+        public void AddTotbProduto(tbProduto tbProduto)
         {
-            base.AddObject("tbProdutoes", tbProduto);
+            base.AddObject("tbProduto", tbProduto);
         }
 
         #endregion
@@ -418,7 +418,7 @@ namespace WebServiceMVC.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("TestePraticoModel", "FK_tbCidadetbEstado", "tbCidade")]
-        public EntityCollection<tbCidade> tbCidades
+        public EntityCollection<tbCidade> tbCidade
         {
             get
             {

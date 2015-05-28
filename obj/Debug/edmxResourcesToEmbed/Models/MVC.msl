@@ -1,26 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="TestePraticoModelStoreContainer" CdmEntityContainer="TestePraticoEntities">
-    <EntitySetMapping Name="tbCidades">
+    <EntitySetMapping Name="tbCidade">
       <EntityTypeMapping TypeName="IsTypeOf(TestePraticoModel.tbCidade)">
-        <MappingFragment StoreEntitySet="tbCidades">
+        <MappingFragment StoreEntitySet="tbCidade">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="Cidade" ColumnName="Cidade" />
           <ScalarProperty Name="tbEstado_id" ColumnName="tbEstado_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tbEstadoes">
+    <EntitySetMapping Name="tbEstado">
       <EntityTypeMapping TypeName="IsTypeOf(TestePraticoModel.tbEstado)">
-        <MappingFragment StoreEntitySet="tbEstadoes">
+        <MappingFragment StoreEntitySet="tbEstado">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="Estado" ColumnName="Estado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tbPessoas">
+    <EntitySetMapping Name="tbPessoa">
       <EntityTypeMapping TypeName="IsTypeOf(TestePraticoModel.tbPessoa)">
-        <MappingFragment StoreEntitySet="tbPessoas">
+        <MappingFragment StoreEntitySet="tbPessoa">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nome" ColumnName="nome" />
           <ScalarProperty Name="cpf" ColumnName="cpf" />
@@ -33,9 +33,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tbProdutoes">
+    <EntitySetMapping Name="tbProduto">
       <EntityTypeMapping TypeName="IsTypeOf(TestePraticoModel.tbProduto)">
-        <MappingFragment StoreEntitySet="tbProdutoes">
+        <MappingFragment StoreEntitySet="tbProduto">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Produto" ColumnName="Produto" />
           <ScalarProperty Name="Fabricacao" ColumnName="Fabricacao" />

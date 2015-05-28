@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="TestePraticoModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
   <EntityContainer Name="TestePraticoEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="tbCidades" EntityType="TestePraticoModel.tbCidade" />
-    <EntitySet Name="tbEstadoes" EntityType="TestePraticoModel.tbEstado" />
-    <EntitySet Name="tbPessoas" EntityType="TestePraticoModel.tbPessoa" />
-    <EntitySet Name="tbProdutoes" EntityType="TestePraticoModel.tbProduto" />
+    <EntitySet Name="tbCidade" EntityType="TestePraticoModel.tbCidade" />
+    <EntitySet Name="tbEstado" EntityType="TestePraticoModel.tbEstado" />
+    <EntitySet Name="tbPessoa" EntityType="TestePraticoModel.tbPessoa" />
+    <EntitySet Name="tbProduto" EntityType="TestePraticoModel.tbProduto" />
     <AssociationSet Name="FK_tbCidadetbEstado" Association="TestePraticoModel.FK_tbCidadetbEstado">
-      <End Role="tbEstado" EntitySet="tbEstadoes" />
-      <End Role="tbCidade" EntitySet="tbCidades" />
+      <End Role="tbEstado" EntitySet="tbEstado" />
+      <End Role="tbCidade" EntitySet="tbCidade" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="tbCidade">
@@ -25,7 +25,7 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Estado" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="tbCidades" Relationship="TestePraticoModel.FK_tbCidadetbEstado" FromRole="tbEstado" ToRole="tbCidade" />
+    <NavigationProperty Name="tbCidade" Relationship="TestePraticoModel.FK_tbCidadetbEstado" FromRole="tbEstado" ToRole="tbCidade" />
   </EntityType>
   <EntityType Name="tbPessoa">
     <Key>
