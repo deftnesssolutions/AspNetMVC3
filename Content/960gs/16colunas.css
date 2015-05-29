@@ -20,7 +20,9 @@ body {
 
 /* Containers
 ----------------------------------------------------------------------------------------------------*/
-.container_16 {
+.container_16 
+{
+    
 	margin-left: auto;
 	margin-right: auto;
 	width: 960px;

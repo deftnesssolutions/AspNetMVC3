@@ -72,6 +72,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MVC.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Repositorio\EstadoCidadeBLL.cs" />
     <Compile Include="Models\Repositorio\PessoaBLL.cs" />
     <Compile Include="Models\Repositorio\ProdutoBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,9 +82,10 @@
     <Content Include="Content\960gs\reset.css" />
     <Content Include="Content\960gs\text.css" />
     <Content Include="Content\images\carregando.gif" />
-    <Content Include="Content\images\chruch.png" />
+    <Content Include="Content\images\chruch.BMP" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\logoweb.png" />
+    <Content Include="Content\images\logoweb2.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\apprise\apprise.css" />
     <Content Include="Content\themes\base\jquery.ui.accordion.css" />

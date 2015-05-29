@@ -1,9 +1,9 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-//Este script se encarga de transformar el html simple en Tabs mediante JQuery
-//Para comprobar el funcionamiento sin el Jquery basta apagar este script y compilar executando para ver lo que sucede
-//
+@*Este script se encarga de transformar el html simple en Tabs mediante JQuery
+Para comprobar el funcionamiento sin el Jquery basta apagar este script y compilar executando para ver lo que sucede*@
+
 <script type="text/javascript">
     $().ready(function () {
 
@@ -19,7 +19,7 @@
             <li><a href="#tabs-2">Sobre</a></li>
             <li><a href="#tabs-3">Cadastro de Pessoa</a></li>
             <li><a href="#tabs-4">Cadastro de Produto</a></li>
-            <li><a href="#tabs-5">3ª Atividade</a></li>
+            <li><a href="#tabs-5">Preenchendo DropDownList</a></li>
         </ul>
         <div id="tabs-1">
             <b>As tecnologias utilizadas nesse exemplo são:</b>
@@ -286,6 +286,99 @@
                     <span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
                     <strong>*Dica:</strong> Os formularios utiliza uma funçao personalizado formSubmit criada na pasta Scripts no arquivo
                     Personalizado.js
+                </p>
+            </div>
+        </div>
+
+        <div id="tabs-5">
+             
+            <script type="text/javascript">
+                $().ready(function () {
+
+                    //popup da modal para a div infoPopup2
+                    $('#infoPopup2').dialog({ autoOpen: false });
+
+                    $('#info2').click(function () {
+                        $('#infoPopup2').dialog("open");
+
+                    });
+
+                    //Faça seu código aqui!///////////////////////////////////////////////////////////////////////////////////////////////////
+                    //   Preencho o dropdownlist de cidadade  ao carregar a pagina
+                    //Função que preenche o drowdown Cidade conforme ao estado
+                    $("#Estado").change(function () {
+                        var selectedValue = $(this).val();
+                        if (selectedValue != "Select") {
+                            $.ajax({
+                                url: '@Url.Action("getEstadoByCidade")',
+                                type: 'POST',
+                                data: { "SelectedValue": selectedValue },
+                                dataType: 'json',
+                                success: function (response) {
+                                    var items = "";
+                                    $.each(response.EstadoList, function (i, item) {
+                                        items += "<option value=\"" + item + "\">" + item + "</option>";
+                                    });
+                                    $("#cidade").html(items);
+                                },
+                                error: function (error) {
+
+                                }
+                            });
+                        }
+                        else {
+                            $("#cidade").empty();
+                        }
+
+                    });
+
+                });
+            </script>
+            <b>Cascading</b>
+            <p>
+                Suponhamos que ASP.NET MVC é uma tecnologia bastante nova e precisamos utilizar o auxílio do
+                jquery para realizar algumas funcionalidades, e uma delas é o cascading. Utilizando
+                o AJAX do JQUERY aqui implementamos uma requisição AJAX simples para poder preencher
+                a tag SELECT utilizando cidades e estados.
+            </p>
+            <div class="box_white">
+                
+                <h5>
+                    Estado-Cidade</h5>
+                   
+                <div class="box_small">
+                    <button class="info" id="info2">
+                        info</button>
+                    <div id="infoPopup2" title="Info">
+                        Para realizar essa atividade usamos o evento change() do jquery para
+                        o ESTADO, dentro desse evento chamamos a requisição AJAX que preenche as cidades correspondentes.
+                    </div>
+                    
+                    @using (Html.BeginForm(null, null, FormMethod.Post, new { @id = "formCascade" }))
+                    {
+                         
+                        <p>
+                            <label class="txtLabel">
+                                Estado:
+                            </label>
+                            @Html.DropDownList("Estado", "Select Estado") 
+                           
+                        </p>
+                        <p>
+                            <label class="txtLabel">
+                                Cidade:
+                            </label>
+                            <select id="cidade">
+                                <option value="M">Cidade</option>
+                            </select>
+                        </p>
+                    }
+                </div>
+            </div>
+            <div class="ui-state-highlight ui-corner-all">
+                <p>
+                    <span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
+                    <strong>*Dica:</strong> Leia sobre o método AJAX do JQUERY.
                 </p>
             </div>
         </div>
